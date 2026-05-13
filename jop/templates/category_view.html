@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>وظائف {{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="padding: 50px;">
+        <h1>قسم الوظائف {{ title }}</h1>
+        <hr>
+        <div class="jobs-grid">
+            {% for job in jobs %}
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.description }}</p>
+            {% endfor %}
+
+            <div class="job-card" style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3>{{ job.title }}</h3>
+                <p>الجهة: {{ job.company }}</p>
+                <p>الموقع: {{ job.location }}</p>
+                <a href="{{ url_for('apply_page', job_id=job.id) }}" class="btn" style="display: inline-block; padding: 10px 20px; background: #00b894; color: white; border-radius: 5px; text-decoration: none;">تقديم وتحليل CV</a>
+            </div>
+            {% else %}
+            <p>لا توجد وظائف متاحة حالياً في هذا القسم.</p>
+            {% endfor %}
+        </div>
+        <br>
+        <a href="/">العودة للرئيسية</a>
+    </div>
+</body>
+</html>

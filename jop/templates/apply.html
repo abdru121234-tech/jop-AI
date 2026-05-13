@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تقديم على وظيفة</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="upload-container" style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5;">
+        <div class="upload-card" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; width: 500px;">
+            <h2 style="color: #2d3436;">الذكاء الاصطناعي للتوظيف 🤖</h2>
+            <p style="color: #636e72;">الوظيفة: <strong>{{ job.title }}</strong></p>
+            <p style="font-size: 0.9em; margin-bottom: 20px;">ارفع سيرتك الذاتية (PDF) لنقوم بتحليل مهاراتك ومطابقتها.</p>
+            <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+
+                <div style="border: 2px dashed #0984e3; padding: 30px; border-radius: 15px; margin-bottom: 20px;">
+                    <input type="file" name="cv_file" required style="cursor: pointer;">
+                    <p style="margin-top: 10px; font-size: 0.8em; color: #b2bec3;">اضغط هنا لاختيار ملف الـ PDF</p>
+                </div>
+                <button type="submit" style="background: #00b894; color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 1.1em; cursor: pointer; width: 100%;">بدء التحليل الآن ✨</button>
+            </form>
+        </div>
+         <a href="{{ url_for('index') }}">الرئيسية</a>
+
+    </div>
+
+</body>
+</html>

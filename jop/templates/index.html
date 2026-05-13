@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بوابة التوظيف AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar"><div class="logo">بوابة توظيف AI 🤖</div></nav>
+    <div class="hero"><h1>اختر قطاعك المفضل</h1></div>
+    <div class="category-grid">
+        <!-- الربط هنا يرسل اسم القسم للبايثون -->
+        <a href="{{ url_for('show_category', cat_name='military') }}" class="cat-card"><h3>🎖️ عسكرية</h3></a>
+        <a href="{{ url_for('show_category', cat_name='government') }}" class="cat-card"><h3>🏛️ حكومية</h3></a>
+        <a href="{{ url_for('show_category', cat_name='private') }}" class="cat-card"><h3>🏢 قطاع خاص</h3></a>
+        <a href="{{ url_for('show_category', cat_name='courses') }}" class="cat-card"><h3>🎓 دورات</h3></a>
+        <a href="{{ url_for('apply_page') }}">التقديم</a>
+        <a href="{{ url_for('category_page') }}">عرض الوظائف</a>
+
+
+    </div>
+
+</body>
+</html>
